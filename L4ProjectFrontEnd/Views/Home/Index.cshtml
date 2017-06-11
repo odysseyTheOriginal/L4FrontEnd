@@ -1,0 +1,662 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MoodleLayout.cshtml";
+}
+
+<style>
+    .node circle {
+        cursor: pointer;
+        stroke: #3182bd;
+        stroke-width: 1.5px;
+    }
+
+    .node text {
+        font: 10px sans-serif;
+        pointer-events: none;
+        text-anchor: middle;
+    }
+
+    line.link {
+        fill: none;
+        stroke: #9ecae1;
+        stroke-width: 2px;
+    }
+
+    .link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+.node circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 15px sans-serif;
+  pointer-events: none;
+}
+
+</style>
+
+<!-- Home Section -->
+<div id="home">
+    <div class="container text-center">
+        <!-- Navigation -->
+        <nav id="menu" data-toggle="offcanvas" data-target=".navmenu">
+            <span class="fa fa-bars"></span>
+        </nav>
+
+        <div class="content">
+            <h4>Knowledge Engine</h4>
+            <hr>
+            <div class="header-text btn">
+                <h1><span id="head-title"></span></h1>
+            </div>
+        </div>
+
+        <a href="#meet-us" class="down-btn page-scroll">
+            <span class="fa fa-angle-down"></span>
+        </a>
+    </div>
+</div>
+
+<!-- Meet Us Section -->
+<div id="meet-us">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title">
+                    <h2>Meet Us</h2>
+                    <hr>
+                </div>
+                <p>Give us your questions</p>
+                <p>We'll give you answers</p>
+                <p>And graphical illustrations to help you select the subject areas you need to refer.</p>
+                <a href="#question" class="down-btn page-scroll">
+                    <span class="fa fa-angle-down"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Overview Video Section -->
+<div id="overview-video">
+    <div class="overlay">
+        <div class="container">
+            <a href="#">
+                @*<span class="fa fa-play"></span>*@
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Query Section -->
+<div id="question">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title">
+                    <h2>Question Engine</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="row">
+           
+                <input type="text" class="form-control" id="query" placeholder="Type your query here">
+            
+
+            <div class="row" style="padding-top:15px">
+               
+                
+                    <div align="center">
+                        <input type="button" value="Send" onclick="sendQuery()" class="btn send-btn"  />
+                    </div>
+               
+                
+            </div>
+            </div>
+        </div>
+        <a href="#answer" class="down-btn page-scroll">
+            <span class="fa fa-angle-down"></span>
+        </a>
+    </div>
+@*</div>*@
+
+<!-- Answer Section -->
+<div id="answer">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title">
+                    <h2>Answer</h2>
+                    <hr>
+                </div>
+                <div class="service">
+                    <div class="containermzg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="space"></div>
+    </div>
+    
+    <div class="space"></div>
+    <div class="text-center">
+        <!--<a href="#" class="btn read-more-btn">Check on Dribbble</a>
+        <br>-->
+        <a href="#concept-map" class="down-btn page-scroll"><span class="fa fa-angle-down"></span></a>
+    </div>
+</div>
+
+<!-- Clients Section -->
+
+
+<!-- Concept Map Section -->
+<div id="concept-map">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title">
+                    <h2>Content Map</h2>
+                    <hr>
+                </div>
+                
+                <div id="svgComesHere"> <p>Content mapped as a tree structure.</p></div>
+                <div id="svgTwoComesHere"> <p>Content mapped as a network.</p></div>
+
+            </div>
+        </div>
+        <div class="space"></div>
+
+        <div class="text-center">
+            <a href="#contact" class="page-scroll down-btn">
+                <span class="fa fa-angle-down"></span>
+            </a>
+        </div>
+        <div class="space"></div><div class="space"></div>
+
+    </div>
+</div>
+
+<!-- Call-to-Action Section -->
+<div id="cta">
+    <div class="container text-center">
+        <a href="https://moodle.itfac.mrt.ac.lk/" class="btn go-to-btn">Visit Moodle</a>
+    </div>
+</div>
+
+<!-- Testimonial Section -->
+<div id="testimonials">
+    <div class="overlay">
+        <div class="container">
+            <div class="section-title">
+                <h2>What my Clients Say...</h2>
+                <hr>
+            </div>
+
+            <div id="testimonial" class="owl-carousel owl-theme">
+                <div class="item">
+                    <h3>Et iusto odio dignissimos ducimus qui blanditiis <br>praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint <br>occaecati cupiditate non provident. </h3>
+                    <br>
+                    <h6>LJ, Abc Company</h6>
+                </div>
+
+                <div class="item">
+                    <h3>Fusce dapibus, tellus ac cursus commodo, tortor<br> mauris condimentum. Duis mollis, est non commodo luctus, nisi erat </h3>
+                    <br>
+                    <h6>Kai, Web Geekster</h6>
+                </div>
+
+                <div class="item">
+                    <h3>Cras justo odio, dapibus ac facilisis in, egestas <br>eget quam. Donec id elit non mi porta gravida at eget metus.</h3>
+                    <br>
+                    <h6>Jenn, Coders' Playground</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Contact Us</h2>
+            <hr>
+        </div>
+        <div class="space"></div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <address>
+                    <strong>Address</strong><br>
+                    <br>
+                    ThemeForces.Com<br>
+                    Igbalangao, Bugasong, Anitque<br>
+                    5704, Philippines<br>
+                    Phone: (123) 456-7890
+                    <ul class="social">
+                        <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                        <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+                        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fa fa-dribbble"></span></a></li>
+                    </ul>
+                </address>
+            </div>
+
+            <div class="col-md-9">
+                <form autocomplete="off">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" class="form-control" placeholder="Phone No.">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                    </div>
+                    <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                    <div class="text-right">
+                        <a href="#" class="btn send-btn">Send</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav id="footer">
+    <div class="container">
+        <div class="pull-left">
+            @*<p>2014 © Arcadia. All Rights Reserved. Coded by <a href="https://dribbble.com/jennpereira">Jenn</a> & Designed by <a href="https://dribbble.com/alanpodemski">Alan</a></p>*@
+        </div>
+        <div class="pull-right">
+            <a href="#home" class="page-scroll">Back to Top <span class="fa fa-angle-up"></span></a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/networkDiagram/")js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="@Url.Content("~/Content/networkDiagram/")js/bootstrap.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/networkDiagram/")js/SmoothScroll.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/networkDiagram/")js/jasny-bootstrap.min.js"></script>
+
+<script src="@Url.Content("~/Content/networkDiagram/")js/owl.carousel.js"></script>
+<script src="@Url.Content("~/Content/networkDiagram/")js/typed.js"></script>
+<script src='http://d3js.org/d3.v3.min.js'></script>
+<script>
+   
+      $(function(){
+          $("#head-title").typed({
+              strings: ["Type any Question", "Receive an answer", "And a graphical guide as a support"],
+            typeSpeed: 100,
+            loop: true,
+            startDelay: 100
+          });
+      }); 
+
+      function sendQuery() {
+          item = {}
+          item["QueryEntered"] = $("#query").val();
+
+          $.ajax({
+              url: "/Home/AnswerGen",
+              type: "POST",
+              data: { 'data': item },
+              dataType: "json",
+              success: function (msg) {
+                  $(".containermzg").append('<div>' + msg + '</div>' );
+                  $('#answer').click();
+                  DrawConceptMap();
+              },
+              error: function (msg, textStatus) {
+                  if (textStatus == "error") {
+                      var msg = msg;
+                  }
+              }
+          });
+      }
+
+      function DrawConceptMap() {
+
+          item = {}
+          item["QueryEntered"] = $("#query").val();
+
+          $.ajax({
+              url: "/Home/ConceptMapGen",
+              type: "POST",
+              data: { 'data': item },
+              dataType: "json",
+              success: function (msg) {
+                 GenConceptMapDataTree(msg);    
+                 GenConceptMapDataNetwork(msg);
+                  $('#concept-map').click();
+              },
+              error: function (msg, textStatus) {
+                  if (textStatus == "error") {
+                      var msg = msg;
+                  }
+              }
+          });
+      }
+
+
+      function showtree() {
+          var width = 960,
+               height = 500,
+               root;
+
+          var force = d3.layout.force()
+              .linkDistance(80)
+              .charge(-220)
+              .gravity(.005)
+              .size([width, height])
+              .on("tick", tick);
+
+          var svgOne = d3.select("#svgComesHere")
+              .append("svg:svg")
+              .attr("width", width)//the width value goes here
+              .attr("height", height);
+
+          var link = svgOne.selectAll(".link"),
+                node = svgOne.selectAll(".node");
+
+          var root = jsontotree;
+
+
+          update();
+
+          function update() {
+              var nodes = flatten(root),
+                        links = d3.layout.tree().links(nodes);
+
+              // Restart the force layout.
+              force
+                  .nodes(nodes)
+                  .links(links)
+                  .start();
+
+              // Update links.
+              link = link.data(links, function (d) { return d.target.id; });
+
+              link.exit().remove();
+
+              link.enter().insert("line", ".node")
+                  .attr("class", "link");
+
+              // Update nodes.
+              node = node.data(nodes, function (d) { return d.id; });
+
+              node.exit().remove();
+
+              var nodeEnter = node.enter().append("g")
+                  .attr("class", "node")
+                  .on("click", click)
+                  .call(force.drag);
+
+              nodeEnter.append("circle")
+                  .attr("r", function (d) { return Math.sqrt(d.size) / 10 || 8.5; });
+
+              nodeEnter.append("text")
+                  .attr("dy", "1.2em")
+                  .text(function (d) { return d.name; });
+
+              node.select("circle")
+                  .style("fill", color);
+
+          }
+
+          function tick() {
+              link.attr("x1", function (d) { return d.source.x; })
+                      .attr("y1", function (d) { return d.source.y; })
+                      .attr("x2", function (d) { return d.target.x; })
+                      .attr("y2", function (d) { return d.target.y; });
+
+              node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+          }
+
+          function color(d) {
+              return d._children ? "#39368d" // collapsed package
+                  : d.children ? "#adaaf0" // expanded package
+                  : "#b1ea7c"; // leaf node
+          }
+
+          // Toggle children on click.
+          function click(d) {
+              if (d3.event.defaultPrevented) return; // ignore drag
+              if (d.children) {
+                  d._children = d.children;
+                  d.children = null;
+              } else {
+                  d.children = d._children;
+                  d._children = null;
+              }
+              update();
+          }
+
+          // Returns a list of all nodes under the root.
+          function flatten(root) {
+              var nodes = [], i = 0;
+
+              function recurse(node) {
+                  if (node.children) node.children.forEach(recurse);
+                  if (!node.id) node.id = ++i;
+                  nodes.push(node);
+              }
+
+              recurse(root);
+              return nodes;
+          }
+      }
+
+      function shownet() {
+
+          var nodes = {};
+
+          // Compute the distinct nodes from the links.
+          links.forEach(function (link) {
+              link.source = nodes[link.source] || (nodes[link.source] = { name: link.source });
+              link.target = nodes[link.target] || (nodes[link.target] = { name: link.target });
+          });
+
+          var width = 960,
+              height = 1000;
+
+          var force = d3.layout.force()
+              .nodes(d3.values(nodes))
+              .links(links)
+              .size([width, height])
+              .linkDistance(100)
+              .charge(-1000)
+              .on("tick", tick)
+              .start();
+
+          var svgTwo = d3.select("#svgTwoComesHere")
+                  .append("svg:svg")
+                  .attr("width", width)//the width value goes here
+                  .attr("height", height);
+
+          var link = svgTwo.selectAll(".link")
+              .data(force.links())
+            .enter().append("line")
+              .attr("class", "link");
+
+          var node = svgTwo.selectAll(".node")
+              .data(force.nodes())
+            .enter().append("g")
+              .attr("class", "node")
+              .on("mouseover", mouseover)
+              .on("mouseout", mouseout)
+              .call(force.drag);
+
+          node.append("circle")
+              .attr("r", 12);
+
+          node.append("text")
+              .attr("x", 19)
+              .attr("dy", ".75em")
+              .text(function (d) { return d.name; });
+
+          function tick() {
+              link
+                  .attr("x1", function (d) { return d.source.x; })
+                  .attr("y1", function (d) { return d.source.y; })
+                  .attr("x2", function (d) { return d.target.x; })
+                  .attr("y2", function (d) { return d.target.y; });
+
+              node
+                  .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+          }
+
+          function mouseover() {
+              d3.select(this).select("circle").transition()
+                  .duration(750)
+                  .attr("r", 19);
+          }
+
+          function mouseout() {
+              d3.select(this).select("circle").transition()
+                  .duration(750)
+                  .attr("r", 12);
+          }
+      }
+      
+
+      function GenConceptMapDataTree(msg) {
+          var passedjson = msg;
+
+
+
+          window.jsontotree = {
+              
+                   "name": "analytics",
+                   "children": [
+                    {
+                        "name": "cluster",
+                        "children": [
+                         { "name": "AgglomerativeCluster" },
+                         { "name": "CommunityStructure" },
+                         { "name": "HierarchicalCluster" },
+                         { "name": "MergeEdge" },
+                         { "name": "MergeEdge" }
+                        ]
+                    },
+                    {
+                        "name": "graph",
+                        "children": [
+                         { "name": "BetweennessCentrality" },
+                         { "name": "LinkDistance" },
+                         { "name": "MaxFlowMinCut" },
+                         { "name": "ShortestPaths" },
+                         { "name": "SpanningTree" }
+                        ]
+                    },
+                    {
+                        "name": "optimization",
+                        "children": [
+                         { "name": "AspectRatioBanker" },
+                         { "name": "LinkDistance" },
+                         { "name": "MaxFlowMinCut" },
+                         { "name": "ShortestPaths" },
+                         { "name": "SpanningTree" }
+                        ]
+                    }
+                   ]
+          };
+          showtree();
+
+      };
+
+      function GenConceptMapDataNetwork(msg2) {
+          msgn = msg2.split('[');
+          msg = msgn[1];
+          //var passeddata = msg;
+          msg = msg.replace('[',"");
+          msg = msg.replace(']\r\n', "");
+          msg = msg.replace(/'/g, "");
+          msg = msg.replace(/, /g, ",");
+
+
+          var passeddata = msg.split(',');
+          window.links = [];
+
+          for (var i = 0; i < passeddata.length; ++i) {
+              var res = passeddata[i].split("|||");
+
+    
+                  links.push({
+                      source: res[0],
+                      target: res[1]
+                  });
+              
+
+          }
+
+          
+
+            //      window.links = [
+            // { source: "Microsoft", target: "Amazon" },
+            //{ source: "Microsoft", target: "HTC" },
+            //{ source: "Samsung", target: "Apple" },
+            //{ source: "Motorola", target: "Apple" },
+            //{ source: "Nokia", target: "Apple" },
+            //{ source: "HTC", target: "Apple" },
+            //{ source: "Kodak", target: "Apple" },
+            //{ source: "Microsoft", target: "Barnes & Noble" },
+            //{ source: "Microsoft", target: "Foxconn" },
+            //{ source: "Apple", target: "HTC" },
+            //{ source: "Microsoft", target: "Inventec" },
+            //{ source: "Samsung", target: "Kodak" },
+            //{ source: "LG", target: "Kodak" },
+            //{ source: "RIM", target: "Kodak" },
+            //{ source: "Sony", target: "LG" },
+            //{ source: "Kodak", target: "LG" },
+            //{ source: "Apple", target: "Nokia" },
+            //{ source: "Qualcomm", target: "Nokia" },
+            //{ source: "Apple", target: "Motorola" },
+            //{ source: "Microsoft", target: "Motorola" },
+            //{ source: "Motorola", target: "Microsoft" },
+            //{ source: "Kodak", target: "Samsung" },
+            //{ source: "Apple", target: "Samsung" },
+            //{ source: "Kodak", target: "RIM" },
+            //{ source: "Nokia", target: "Qualcomm" }
+            //      ];
+
+          //updateNetwork();
+                  shownet();
+
+              }
+
+     
+
+          
+ 
+
+
+
+
+      
+
+
+
+
+
+</script>
+
+<!-- Javascripts
+================================================== -->
+<script type="text/javascript" src="@Url.Content("~/Content/networkDiagram/")js/main.js"></script>
+

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/networkDiagram/")img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="@Url.Content("~/Content/networkDiagram/")img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="@Url.Content("~/Content/networkDiagram/")img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="@Url.Content("~/Content/networkDiagram/")img/apple-touch-icon-114x114.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/networkDiagram/")css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/networkDiagram/")font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/networkDiagram/")css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/networkDiagram/")css/animate.css">
+    <!-- Slider
+    ================================================== -->
+    <link href="@Url.Content("~/Content/networkDiagram/")css/owl.carousel.css" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/Content/networkDiagram/")css/owl.theme.css" rel="stylesheet" media="screen">
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/networkDiagram/")css/style.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/networkDiagram/")css/responsive.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="@Url.Content("~/Content/networkDiagram/")js/modernizr.custom.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <!-- Off Canvas Navigation
+    ================================================== -->
+    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+        <!--- Off Canvas Side Menu -->
+        <div class="close" data-toggle="offcanvas" data-target=".navmenu">
+            <span class="fa fa-close"></span>
+        </div>
+        <div class="add-margin"></div>
+        <ul class="nav navmenu-nav">
+            <!--- Menu -->
+            <li><a href="#home" class="page-scroll">Home</a></li>
+            <li><a href="#meet-us" class="page-scroll">Overview</a></li>
+            <li><a href="#question" class="page-scroll">Question</a></li>
+            <li><a href="#answer" class="page-scroll">Answer</a></li>
+            <li><a href="#concept-map" class="page-scroll">Concept Map</a></li>
+            <li><a href="#contact" class="page-scroll">Contact Us</a></li>
+        </ul><!--- End Menu -->
+    </div> <!--- End Off Canvas Side Menu -->
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
